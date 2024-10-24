@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvclj5x7jgaan"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ru67x"]
+[ext_resource type="Texture2D" uid="uid://cw0233iki11yj" path="res://Assets/AnimationSheet_Character.png" id="1_yvsen"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_up27f"]
+size = Vector2(16, 28)
+
+[sub_resource type="Animation" id="Animation_tix55"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_mnka1"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7e2mf"]
+_data = {
+"RESET": SubResource("Animation_mnka1"),
+"idle": SubResource("Animation_tix55")
+}
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(0, -1)
+script = ExtResource("1_ru67x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_yvsen")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -14)
+shape = SubResource("RectangleShape2D_up27f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7e2mf")
+}
+autoplay = "idle"
