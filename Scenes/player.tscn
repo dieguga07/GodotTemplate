@@ -381,7 +381,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_0va0n"]
 resource_name = "attack"
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -436,7 +435,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_tix55"]
 resource_name = "idle"
-length = 1.2
+length = 3.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -457,7 +456,7 @@ tracks/1/path = NodePath("Player_Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"times": PackedFloat32Array(0.166667, 0.766667, 1.2, 1.73333, 2.2, 2.76667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 0, 1, 0, 1]
@@ -629,14 +628,11 @@ advance_condition = &"is_jumping"
 advance_mode = 0
 advance_condition = &"move"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mkhiu"]
-switch_mode = 2
-advance_mode = 0
-advance_condition = &"idle"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tvdoj"]
-advance_mode = 0
-advance_condition = &"swing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sd38k"]
+switch_mode = 2
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rp18h"]
 states/Attack/node = SubResource("AnimationNodeBlendSpace1D_sbnr6")
@@ -647,7 +643,7 @@ states/Jump/position = Vector2(498, 236)
 states/Move/node = SubResource("AnimationNodeBlendSpace1D_6vfdb")
 states/Move/position = Vector2(312, 236)
 states/Start/position = Vector2(121, 236)
-transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_kxwng"), "Move", "Jump", SubResource("AnimationNodeStateMachineTransition_uobmd"), "Jump", "Move", SubResource("AnimationNodeStateMachineTransition_mrauy"), "Attack", "Move", SubResource("AnimationNodeStateMachineTransition_mkhiu"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_tvdoj")]
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_kxwng"), "Move", "Jump", SubResource("AnimationNodeStateMachineTransition_uobmd"), "Jump", "Move", SubResource("AnimationNodeStateMachineTransition_mrauy"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_tvdoj"), "Attack", "Move", SubResource("AnimationNodeStateMachineTransition_sd38k")]
 graph_offset = Vector2(-99, 86.146)
 
 [node name="Player" type="CharacterBody2D"]
@@ -673,10 +669,8 @@ autoplay = "idle"
 [node name="Player_State_Machine" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_rp18h")
 anim_player = NodePath("../Player_Animations")
-parameters/conditions/idle = false
 parameters/conditions/is_jumping = true
 parameters/conditions/move = false
-parameters/conditions/swing = false
 parameters/Attack/blend_position = 0
 parameters/Jump/blend_position = 0
 parameters/Move/blend_position = 0
