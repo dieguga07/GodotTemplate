@@ -435,7 +435,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_tix55"]
 resource_name = "idle"
-length = 3.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -456,10 +455,10 @@ tracks/1/path = NodePath("Player_Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.166667, 0.766667, 1.2, 1.73333, 2.2, 2.76667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.2, 0.466667, 0.9, 2.76667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 0, 1, 0, 1]
+"values": [0, 1, 0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_wifk1"]
@@ -627,7 +626,7 @@ states/idle/position = Vector2(268, 236)
 states/jump/node = SubResource("AnimationNodeAnimation_gwbid")
 states/jump/position = Vector2(35, 236)
 states/walk/node = SubResource("AnimationNodeAnimation_3qm4s")
-states/walk/position = Vector2(268, 116.146)
+states/walk/position = Vector2(268, 115.146)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_8ykaa"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_1wyvy"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_khbmr"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_2ykah"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_kus8q"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_8d747"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_28daf")]
 graph_offset = Vector2(-180, 46.146)
 
