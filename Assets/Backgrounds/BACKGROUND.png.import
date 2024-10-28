@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwee12qdkilon"
-path="res://.godot/imported/Tile-Atlas 16x16.png-1365825ef72c768e472a9af29165e838.ctex"
+uid="uid://cy5wp0fj2u2p8"
+path="res://.godot/imported/BACKGROUND.png-5f7dc5010b12e395d073a0e7f652355f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Asset atlas/Tile-Atlas 16x16.png"
-dest_files=["res://.godot/imported/Tile-Atlas 16x16.png-1365825ef72c768e472a9af29165e838.ctex"]
+source_file="res://Assets/Backgrounds/BACKGROUND.png"
+dest_files=["res://.godot/imported/BACKGROUND.png-5f7dc5010b12e395d073a0e7f652355f.ctex"]
 
 [params]
 

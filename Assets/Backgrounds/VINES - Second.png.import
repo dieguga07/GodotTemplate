@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwuus6in2fkt0"
-path="res://.godot/imported/img2.png-a7a053b26e910b75ecb97fe170563dce.ctex"
+uid="uid://klvs3vmndkxq"
+path="res://.godot/imported/VINES - Second.png-35009b98078cc9f4341b61f24cb7f39d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Asset atlas/img2.png"
-dest_files=["res://.godot/imported/img2.png-a7a053b26e910b75ecb97fe170563dce.ctex"]
+source_file="res://Assets/Backgrounds/VINES - Second.png"
+dest_files=["res://.godot/imported/VINES - Second.png-35009b98078cc9f4341b61f24cb7f39d.ctex"]
 
 [params]
 
