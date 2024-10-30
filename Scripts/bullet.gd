@@ -6,7 +6,7 @@ var direction:Vector2
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
-	await get_tree().create_timer(0.8).timeout
+	await get_tree().create_timer(0.6).timeout
 	animated_sprite_2d.play("explosion")
 	set_direction(Vector2.ZERO)
 	await get_tree().create_timer(0.5).timeout

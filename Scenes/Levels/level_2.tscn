@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dy5oo4k050ads"]
+[gd_scene load_steps=7 format=3 uid="uid://dy5oo4k050ads"]
 
 [ext_resource type="Texture2D" uid="uid://crgv86iwv6n5c" path="res://Assets/Tiles/Tilesheet - WOODS.png" id="1_52gj6"]
 [ext_resource type="Texture2D" uid="uid://bmj8emqsi6yy2" path="res://Assets/Backgrounds/WOODS - First.png" id="2_hcp71"]
 [ext_resource type="PackedScene" uid="uid://cvclj5x7jgaan" path="res://Scenes/player.tscn" id="3_nsbt8"]
-[ext_resource type="PackedScene" uid="uid://b88meh6yuwlfb" path="res://Scenes/golem_boss.tscn" id="4_rrabm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2cejt"]
 texture = ExtResource("1_52gj6")
@@ -966,8 +965,6 @@ layer_1/tile_data = PackedInt32Array(1, 196608, 2, 65537, 196608, 3, 2, 131072, 
 position = Vector2(86, 116)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(117, -89)
+position = Vector2(0, -42)
 zoom = Vector2(3, 3)
-
-[node name="golem_Boss" parent="." instance=ExtResource("4_rrabm")]
-position = Vector2(572, 14)
+limit_bottom = 225
