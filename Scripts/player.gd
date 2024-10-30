@@ -4,10 +4,13 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 
 @onready var state_machine = $Player_State_Machine["parameters/playback"]
+
 @export var magic_ball_scene: PackedScene
 var last_direction = 1  
-@onready var timer_attack: Timer = $TimerAttack
 
+
+@export var throw_cooldown: float = 0.5
+var can_throw = true
 
 
 func _physics_process(delta: float) -> void:
@@ -29,8 +32,16 @@ func _physics_process(delta: float) -> void:
 		state_machine.travel("attack")
 
   	# Manejar lanzamiento de magia
-	if Input.is_action_just_pressed("throw_attack"):
+	if Input.is_action_just_pressed("throw_attack") and can_throw:
 		launch_magic_ball(direction)
+		can_throw = false  # Desactivar el lanzamiento
+
+	# Actualizar el cooldown
+	if not can_throw:
+		throw_cooldown -= delta
+		if throw_cooldown <= 0:
+			can_throw = true
+			throw_cooldown = 0.5
 
 	# Manejar movimiento
 	if direction != 0:
@@ -51,7 +62,6 @@ func _physics_process(delta: float) -> void:
 		if velocity.y < 0:
 			state_machine.travel("jump")  
 
-
 	move_and_slide()
 	
 func launch_magic_ball(direction: float):
@@ -59,7 +69,7 @@ func launch_magic_ball(direction: float):
 	state_machine.travel("attack")
 	var magic_ball = magic_ball_scene.instantiate()
 	# Establecer la posición inicial (donde se lanzará la bola)
-	magic_ball.position = global_position + Vector2(5 * direction, -10)  # Lanzar desde un poco arriba del personaje
+	magic_ball.position = global_position + Vector2(direction, -15)  # Lanzar desde un poco arriba del personaje
 	
 	# Establecer la dirección de la bola de magia según la dirección del personaje
 	var ball_direction = Vector2(direction if direction != 0 else last_direction, 0).normalized()
