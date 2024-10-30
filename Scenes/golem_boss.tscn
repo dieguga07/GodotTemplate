@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://b88meh6yuwlfb"]
+
+[ext_resource type="Texture2D" uid="uid://xnxy030ky8qi" path="res://Assets/Golems_Free_Version/Golem_1/Orange/No_Swoosh_VFX/Golem_1_idle.png" id="1_nhcio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyuqm"]
+atlas = ExtResource("1_nhcio")
+region = Rect2(0, 0, 90, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqa68"]
+atlas = ExtResource("1_nhcio")
+region = Rect2(90, 0, 90, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw1ci"]
+atlas = ExtResource("1_nhcio")
+region = Rect2(180, 0, 90, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uqxe"]
+atlas = ExtResource("1_nhcio")
+region = Rect2(270, 0, 90, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2e4h"]
+atlas = ExtResource("1_nhcio")
+region = Rect2(360, 0, 90, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6farq"]
+atlas = ExtResource("1_nhcio")
+region = Rect2(450, 0, 90, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uun7w"]
+atlas = ExtResource("1_nhcio")
+region = Rect2(540, 0, 90, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nog38"]
+atlas = ExtResource("1_nhcio")
+region = Rect2(630, 0, 90, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qmr0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyuqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqa68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw1ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uqxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2e4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6farq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uun7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nog38")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3brkn"]
+size = Vector2(22.6667, 28.6667)
+
+[node name="golem_Boss" type="AnimatedSprite2D"]
+position = Vector2(-1, -96)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_qmr0x")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.515603
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.333334, 17.6667)
+shape = SubResource("RectangleShape2D_3brkn")

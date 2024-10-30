@@ -73,7 +73,7 @@ size = Vector2(24, 30)
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_bb71y")
 autoplay = "default"
-frame_progress = 0.399739
+frame_progress = 0.780382
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 17)
