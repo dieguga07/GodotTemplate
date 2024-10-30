@@ -1,7 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhr8gymq84geg"]
+[gd_scene load_steps=13 format=3 uid="uid://dhr8gymq84geg"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_70wxq"]
-[ext_resource type="Texture2D" uid="uid://cw0233iki11yj" path="res://Assets/AnimationSheet_Character.png" id="2_3p2cw"]
+[ext_resource type="Texture2D" uid="uid://5ywe2c483fpe" path="res://Assets/ice_shard/I5050-1.png" id="2_15ngh"]
+[ext_resource type="Texture2D" uid="uid://cgr8qvm1fg76c" path="res://Assets/ice_shard/I5050-2.png" id="3_vfcv6"]
+[ext_resource type="Texture2D" uid="uid://bqlv3ydc63qmt" path="res://Assets/ice_shard/I5050-3.png" id="4_dilqf"]
+[ext_resource type="Texture2D" uid="uid://c8l3wiru547x5" path="res://Assets/ice_shard/I5050-4.png" id="5_2so3f"]
+[ext_resource type="Texture2D" uid="uid://cqgnra5u4mjfk" path="res://Assets/ice_shard/I5050-8.png" id="9_lriy2"]
+[ext_resource type="Texture2D" uid="uid://bm77leylp365l" path="res://Assets/ice_shard/I5050-9.png" id="10_152sk"]
+[ext_resource type="Texture2D" uid="uid://cr6tncaf7k0h1" path="res://Assets/ice_shard/I5050-10.png" id="11_1fhyy"]
+[ext_resource type="Texture2D" uid="uid://d2yas5jn0l42h" path="res://Assets/ice_shard/I5050-11.png" id="12_3glpn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdqwq"]
+atlas = ExtResource("2_15ngh")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nlboo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdqwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vfcv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dilqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2so3f")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_lriy2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_152sk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1fhyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_3glpn")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gd6bm"]
 radius = 2.0
@@ -9,10 +57,13 @@ radius = 2.0
 [node name="bullet" type="Area2D"]
 script = ExtResource("1_70wxq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3p2cw")
-region_enabled = true
-region_rect = Rect2(85, 271, 4, 4)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_nlboo")
+animation = &"explosion"
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gd6bm")
