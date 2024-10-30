@@ -12,6 +12,8 @@ var last_direction = 1
 @export var throw_cooldown: float = 0.5
 var can_throw = true
 
+func _ready():
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	
