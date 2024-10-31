@@ -10,12 +10,13 @@ var can_throw = true
 
 @onready var state_machine = $Player_State_Machine["parameters/playback"]
 
-
+@onready var health_label: Label = $health_label
 
 
 func _ready():
 	add_to_group("player")
-
+	health_label.text = str(health)
+	
 func _physics_process(delta: float) -> void:
 	
 	# Aplicar gravedad
@@ -84,8 +85,8 @@ func launch_magic_ball(direction: float):
 	get_parent().add_child(magic_ball)
 
 func get_damage(damage):
-	
 	health -= damage
+	health_label.text = str(health)
 	print(health)
 	if health <= 0:
 		get_tree().reload_current_scene()
