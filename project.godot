@@ -28,6 +28,14 @@ throw_attack={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Pick up"
+2d_physics/layer_4="portal"
+2d_physics/layer_5="killzone"
+2d_physics/layer_6="Layer"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

@@ -3133,7 +3133,7 @@ texture = ExtResource("7_cjxxx")
 27:5/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_mniii"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 32
 sources/5 = SubResource("TileSetAtlasSource_wxttr")
 sources/6 = SubResource("TileSetAtlasSource_nxyk7")
 sources/7 = SubResource("TileSetAtlasSource_vwsd2")
@@ -3143,7 +3143,7 @@ sources/10 = SubResource("TileSetAtlasSource_a4ly3")
 sources/12 = SubResource("TileSetAtlasSource_7fdso")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s15n6"]
-distance = -351.0
+distance = -599.0
 
 [node name="Level 1" type="Node2D"]
 
@@ -3178,5 +3178,5 @@ position = Vector2(34, -192)
 [node name="killzone" parent="." instance=ExtResource("10_h7gpg")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(46, -1)
+position = Vector2(68, -252)
 shape = SubResource("WorldBoundaryShape2D_s15n6")
