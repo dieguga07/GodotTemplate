@@ -4,7 +4,6 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 var last_direction = 1  
 var can_throw = true
-@export var health = 100.0
 @export var magic_ball_scene: PackedScene
 @export var throw_cooldown: float = 0.5
 
@@ -15,7 +14,7 @@ var can_throw = true
 
 func _ready():
 	add_to_group("player")
-	health_label.text = str(health)
+	health_label.text = str(GameManager.player_health)
 	
 func _physics_process(delta: float) -> void:
 	
@@ -85,10 +84,12 @@ func launch_magic_ball(direction: float):
 	get_parent().add_child(magic_ball)
 
 func get_damage(damage):
-	health -= damage
-	health_label.text = str(health)
-	print(health)
-	if health <= 0:
+	GameManager.player_health -= damage
+	health_label.text = str(GameManager.player_health)
+	print(GameManager.player_health)
+	if GameManager.player_health <= 0:
+		GameManager.player_health = 100
 		get_tree().reload_current_scene()
+		
 	
 	
