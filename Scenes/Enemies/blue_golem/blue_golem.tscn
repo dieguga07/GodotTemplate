@@ -411,5 +411,6 @@ scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_igcif")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="attack_Left" to="." method="_on_attack_left_body_entered"]
 [connection signal="body_entered" from="attack_Left" to="." method="_on_attack_body_entered"]
-[connection signal="body_entered" from="attack_Right" to="." method="_on_attack_body_entered"]
+[connection signal="body_entered" from="attack_Right" to="." method="_on_attack_right_body_entered"]

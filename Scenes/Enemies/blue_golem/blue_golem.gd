@@ -26,9 +26,19 @@ func _on_timer_timeout():
 		direction = -direction
 	
 
-func _on_attack_right_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func _on_attack_right_body_entered(body):
+	if body.is_in_group("player"):
+		direction = 1
+		golem_sprite.play("attack")
+		await golem_sprite.animation_finished
+		body.get_damage(damage)
+		golem_sprite.play("walk")
 
-
-func _on_attack_left_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func _on_attack_left_body_entered(body):
+	if body.is_in_group("player"):
+		direction = -1
+		golem_sprite.play("attack")
+		await golem_sprite.animation_finished
+		body.get_damage(damage)
+		golem_sprite.play("walk")
+		

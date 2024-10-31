@@ -86,8 +86,8 @@ func launch_magic_ball(direction: float):
 func get_damage(damage):
 	
 	health -= damage
-	
+	print(health)
 	if health <= 0:
-		pass
+		get_tree().reload_current_scene()
 	
 	
