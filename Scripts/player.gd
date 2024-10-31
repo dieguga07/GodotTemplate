@@ -2,15 +2,16 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
+var last_direction = 1  
+var can_throw = true
+@export var health = 100.0
+@export var magic_ball_scene: PackedScene
+@export var throw_cooldown: float = 0.5
 
 @onready var state_machine = $Player_State_Machine["parameters/playback"]
 
-@export var magic_ball_scene: PackedScene
-var last_direction = 1  
 
 
-@export var throw_cooldown: float = 0.5
-var can_throw = true
 
 func _ready():
 	add_to_group("player")
@@ -32,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	# Manejar ataque.
 	if Input.is_action_just_pressed("attack"):
 		state_machine.travel("attack")
+		print("attack...")
 
   	# Manejar lanzamiento de magia
 	if Input.is_action_just_pressed("throw_attack") and can_throw:
@@ -80,3 +82,12 @@ func launch_magic_ball(direction: float):
 	
 	# Añadir la bola de magia a la escena
 	get_parent().add_child(magic_ball)
+
+func get_damage(damage):
+	
+	health -= damage
+	
+	if health <= 0:
+		pass
+	
+	
